@@ -10,6 +10,7 @@ public class BlogBootApplication {
         SpringApplication.run(BlogBootApplication.class, args);
 
         System.out.println("Hello World.");
+        System.out.println("Hello World.");        
     }
 
 }
