@@ -1,31 +1,31 @@
 package com.example.blogboot.service;
 
 import com.example.blogboot.domain.Posts;
-import com.example.blogboot.repository.PostsRepository;
+import com.example.blogboot.repository.PostRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class PostServiceImpl implements PostService {
 
-    private final PostsRepository postsRepository;
+    private  final PostRepository postRepository;
 
-    public PostServiceImpl(final PostsRepository postsRepository) {
-        this.postsRepository = postsRepository;
+    public PostServiceImpl(PostRepository postRepository) {
+        this.postRepository = postRepository;
     }
 
     @Override
     public Posts create(Posts posts) {
-        return postsRepository.save(posts);
+        return postRepository.save(posts);
     }
 
     @Override
     public Posts findById(int id) {
-        return postsRepository.findById(id).orElse(null);
+        return postRepository.findById(id).orElse(null);
     }
 
     @Override
     public List<Posts> findAll() {
-        return postsRepository.findAll();
+        return postRepository.findAll();
     }
 }

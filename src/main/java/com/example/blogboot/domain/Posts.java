@@ -15,7 +15,7 @@ public class Posts implements Serializable {
     private String category;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate datePublished;
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "Text")
     private String body;
     @ManyToOne
     private Author author;
@@ -26,14 +26,6 @@ public class Posts implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
     }
 
     public String getTag() {
@@ -66,5 +58,13 @@ public class Posts implements Serializable {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 }
