@@ -36,7 +36,7 @@
                     <div class="form-group row">
                         <label for="dob" class="col-sm-2 col-form-label">Date Of Birth</label>
                         <div class="col-sm-8">
-                            <input type="date" id="dob" class="form-control">
+                            <input type="date" id="dob" th:field="*{date_of_birth}" class="form-control">
                         </div>
                         <small></small>
                     </div>
@@ -44,7 +44,7 @@
                     <div class="form-group row">
                         <label for="exp" class="col-sm-2 col-form-label">Experience</label>
                         <div class="col-sm-8">
-                            <input type="number" id="exp" class="form-control">
+                            <input type="number" id="exp" th:field="*{experienceYears}" class="form-control">
                         </div>
                         <small></small>
                     </div>
