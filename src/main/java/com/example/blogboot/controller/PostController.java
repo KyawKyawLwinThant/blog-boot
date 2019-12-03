@@ -6,9 +6,7 @@ import com.example.blogboot.service.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -50,11 +48,17 @@ public class PostController {
         model.addAttribute("posts",postService.findAll());
         model.addAttribute("success"
                 ,model.containsAttribute("success"));
-        return "admin/posts";
+        return "posts";
     }
 
     @ModelAttribute(name = "categories")
     public List<String> categories(){
         return Arrays.asList("Horror","Tragedy","Si-Fi","Romance","Travel");
+    }
+
+    @GetMapping("/posts/{postid}")
+    public String showPostDetails(@PathVariable int postid, Model model){
+        model.addAttribute("post",postService.findById(postid));
+        return "post";
     }
 }

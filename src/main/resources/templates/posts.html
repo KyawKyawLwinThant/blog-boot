@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous"/>-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+          crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="admin/fragments/navbar :: navbar"></div>
+<!--header photo-->
+<div th:replace="admin/fragments/header :: blogheader"></div>
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Tags</th>
+                <th>Category</th>
+                <th>Body</th>
+                <th>Date Published</th>
+                <th>Author Name</th>
+                <th>Detils</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="pos :${posts}">
+                <td th:text="${pos.tag}"></td>
+                <td th:text="${pos.category}"></td>
+                <td th:text="${#strings.substring(pos.body,0,20)}"></td>
+                <td th:text="${pos.datePublished}"></td>
+                <td th:text="${pos.author.name}"></td>
+                <td><a href="#" class="btn btn-secondary"
+                       th:href="@{'/posts/'+ ${pos.id}}">Details</a></td>
+            </tr>
+
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+
+
+
+<div th:replace="admin/fragments/footer :: blogfooter"></div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
+</body>
+</html>
